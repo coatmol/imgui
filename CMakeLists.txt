@@ -6,10 +6,12 @@ add_library(ImGui STATIC
     imgui_draw.cpp
     imgui_internal.h
     imgui_widgets.cpp
+    imgui_tables.cpp
     imstb_rectpack.h
     imstb_textedit.h
     imstb_truetype.h
     imgui_demo.cpp
+    backends/imgui_impl_opengl3.cpp
 )
 
 # Set the output directories for the compiled library and object files
@@ -21,7 +23,7 @@ set_target_properties(ImGui PROPERTIES
 )
 
 # Include the current source directory for header file resolution
-target_include_directories(ImGui PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(ImGui PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/backends")
 
 # Set C++ standard and runtime options based on the operating system
 if (WIN32)
